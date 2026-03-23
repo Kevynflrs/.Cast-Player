@@ -1,8 +1,12 @@
+import React from 'react';
+import Player from './components/Player';
+import './App.css';
+
 function App() {
   return (
-    <div style={{ padding: '40px', fontFamily: 'monospace', color: 'green' }}>
-      <h1>CastPlayer 🎬</h1>
-      <p>Le projet est initialisé !</p>
+    <div className="App">
+      <h1>Lecteur de fichiers .cast</h1>
+      <Player src="https://asciinema.org/a/505530.cast" />
     </div>
   );
 }
