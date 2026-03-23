@@ -1,38 +1,168 @@
 .App {
   text-align: center;
+  padding: 20px;
+  font-family: Arial, sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.dropzone {
+  border: 2px dashed #ccc;
+  padding: 40px;
+  text-align: center;
+  cursor: pointer;
+  margin: 20px auto;
+  max-width: 600px;
+  border-radius: 8px;
+  transition: all 0.3s;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.dropzone:hover {
+  border-color: #007bff;
+  background: #f9f9f9;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.player-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.file-info {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  margin-bottom: 10px;
+  padding: 10px;
+  background: #f0f0f0;
+  border-radius: 5px;
+}
+
+.reset-button {
+  background: #dc3545;
   color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+.reset-button:hover {
+  background: #c82333;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.player-container {
+  margin: 20px auto;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.controls {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.controls button {
+  padding: 8px 12px;
+  cursor: pointer;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+}
+
+.controls button:hover {
+  background: #0056b3;
+}
+
+.fullscreen-button {
+  background: #28a745;
+}
+
+.fullscreen-button:hover {
+  background: #218838;
+}
+.App {
+  text-align: center;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.dropzone {
+  border: 2px dashed #ccc;
+  padding: 40px;
+  text-align: center;
+  cursor: pointer;
+  margin: 20px auto;
+  max-width: 600px;
+  border-radius: 8px;
+  transition: all 0.3s;
+}
+
+.dropzone:hover {
+  border-color: #007bff;
+  background: #f9f9f9;
+}
+
+.player-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.file-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 10px;
+  background: #f0f0f0;
+  border-radius: 5px;
+}
+
+.reset-button {
+  background: #dc3545;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.reset-button:hover {
+  background: #c82333;
+}
+
+/* Nouveaux styles pour les boutons de vitesse */
+.player-container {
+  margin: 20px auto;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.controls {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.controls button {
+  padding: 8px 12px;
+  cursor: pointer;
+  background: #f0f0f0;
+  color: #333;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.controls button:hover {
+  background: #e0e0e0;
+}
+
+.controls button.active {
+  background: #007bff;
+  color: white;
+  border-color: #007bff;
 }
