@@ -5,20 +5,25 @@ import './App.css';
 
 function App() {
   const [selectedFile, setSelectedFile] = useState(null);
+  const [fileName, setFileName] = useState('');
 
   const onDrop = useCallback((acceptedFiles) => {
     const file = acceptedFiles[0];
     if (file) {
       const fileUrl = URL.createObjectURL(file);
       setSelectedFile(fileUrl);
+      setFileName(file.name);
     }
   }, []);
 
+  const resetFile = () => {
+    setSelectedFile(null);
+    setFileName('');
+  };
+
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
-    accept: {
-      'text/plain': ['.cast']
-    },
+    accept: { 'text/plain': ['.cast'] },
     maxFiles: 1,
   });
 
@@ -27,19 +32,7 @@ function App() {
       <h1>Lecteur de fichiers .cast</h1>
 
       {!selectedFile ? (
-        <div
-          {...getRootProps()}
-          className="dropzone"
-          style={{
-            border: '2px dashed #ccc',
-            padding: '20px',
-            textAlign: 'center',
-            cursor: 'pointer',
-            margin: '20px auto',
-            maxWidth: '500px',
-            background: isDragActive ? '#f0f0f0' : 'white',
-          }}
-        >
+        <div {...getRootProps()} className="dropzone">
           <input {...getInputProps()} />
           {isDragActive ? (
             <p>Déposez le fichier ici ...</p>
@@ -48,7 +41,13 @@ function App() {
           )}
         </div>
       ) : (
-        <Player src={selectedFile} />
+        <div className="player-wrapper">
+          <div className="file-info">
+            <span>Fichier : {fileName}</span>
+            <button onClick={resetFile} className="reset-button">Changer de fichier</button>
+          </div>
+          <Player src={selectedFile} />
+        </div>
       )}
     </div>
   );
